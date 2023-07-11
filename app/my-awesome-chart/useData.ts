@@ -4,15 +4,14 @@ import { AxiosRequestConfig } from "axios";
 import apiClient from "./apiClient";
 
 interface Response<T> {
-  amount: number;
-  results: {};
+  rates: {};
 }
 export interface ConvertRate {
   USD: number;
 }
 
 const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
-  const [data, setData] = useState<T[]>([]);
+  const [data, setData] = useState({ rates: {} });
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,7 +29,7 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
           console.log("from USEDATA  res.data", res.data);
         })
         .catch((err) => {
-          if (err.message === "canceled") return; //this differs from Mosh' implementation he use instanceof CanceledError, but I could not get this to work
+          if (err.message === "canceled") return;
           setError(err.message);
           setIsLoading(false);
         });
