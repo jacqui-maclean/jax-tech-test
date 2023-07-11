@@ -8,19 +8,31 @@ const myChart = () => {
   const [isError, setError] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
-      console.log("calling fetchData from loadData");
       try {
         const response = await fetch("https://api.frankfurter.app/2023-01-01..2023-01-31?from=GBP&to=USD");
         let results = await response.json();
-        console.log("results from loadData", results);
         let data = results;
-        setData(data);
+        let chartArray: { x: number; y: number }[] = [];
+        let rates = data.rates;
+        for (let key in rates) {
+          let chartObject = { x: 0, y: 0 };
+          let dateKey = rates[key];
+          let dateItems = key.split("-");
+          let day = dateItems[2];
+          chartObject.x = parseInt(day);
+          for (let key in dateKey) {
+            chartObject.y = dateKey[key];
+          }
+          chartArray.push(chartObject);
+        }
+        setData(chartArray);
       } catch (error) {
         setError(true);
       }
     };
     fetchData();
   }, []);
+
   return (
     <VictoryChart theme={VictoryTheme.material}>
       <VictoryLine
@@ -28,26 +40,14 @@ const myChart = () => {
           data: { stroke: "#c43a31" },
           parent: { border: "1px solid #ccc" },
         }}
-        data={[
-          { x: 1, y: 2 },
-          { x: 2, y: 3 },
-          { x: 3, y: 5 },
-          { x: 4, y: 4 },
-          { x: 5, y: 7 },
-        ]}
+        data={data}
       />
       <VictoryLine
         style={{
           data: { stroke: "#c4c4c4" },
           parent: { border: "1px solid #ccc" },
         }}
-        data={[
-          { x: 1, y: 3 },
-          { x: 2, y: 4 },
-          { x: 3, y: 5 },
-          { x: 4, y: 6 },
-          { x: 5, y: 7 },
-        ]}
+        data={data}
       />
     </VictoryChart>
   );
