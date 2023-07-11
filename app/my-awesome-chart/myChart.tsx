@@ -30,7 +30,7 @@ const myChart = () => {
   const ChartData1 = convertData(rawData1);
   console.log("ChartData1", ChartData1);
 
-  const rawData2: any = useData("/2013-01-01..2023-01-31?from=GBP&to=USD");
+  const rawData2: any = useData("/2013-01-01..2013-01-31?from=GBP&to=USD");
   console.log("TEST rawData.data2", rawData2);
   const ChartData2: any = convertData(rawData2);
   console.log("ChartData2", ChartData2);
