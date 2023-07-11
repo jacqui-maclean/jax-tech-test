@@ -2,7 +2,17 @@
 
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 
-const myChart = (data1, data2) => {
+interface Props {
+  data1: ChartPoint[];
+  data2: ChartPoint[];
+}
+
+interface ChartPoint {
+  x: number;
+  y: number;
+}
+
+const myChart = ({ data1, data2 }: Props) => {
   return (
     <VictoryChart theme={VictoryTheme.material}>
       <VictoryLine
