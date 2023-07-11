@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 
 const myChart = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState<{ x: number; y: number }[]>();
   const [isError, setError] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
