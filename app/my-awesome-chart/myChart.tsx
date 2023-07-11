@@ -1,14 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 
-import useData from "./useData";
+import FetchData from "./useData";
 
 const myChart = () => {
-  const [data1, setData1] = useState<{ x: number; y: number }[]>();
-  const [data2, setData2] = useState<{ x: number; y: number }[]>();
-
   const convertData = (rawData: { rates: { [key: string]: any } }) => {
     let chartArray: { x: number; y: number }[] = [];
     let rates = rawData.rates;
@@ -25,10 +21,10 @@ const myChart = () => {
     }
     return chartArray;
   };
-  const rawData1: any = useData("/2023-01-01..2023-01-31?from=GBP&to=USD");
+  const rawData1: any = FetchData("/2023-01-01..2023-01-31?from=GBP&to=USD");
   const ChartData1 = convertData(rawData1);
 
-  const rawData2: any = useData("/2013-01-01..2013-01-31?from=GBP&to=USD");
+  const rawData2: any = FetchData("/2013-01-01..2013-01-31?from=GBP&to=USD");
   const ChartData2: any = convertData(rawData2);
 
   return (
