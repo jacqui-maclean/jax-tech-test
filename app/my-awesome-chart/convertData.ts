@@ -1,8 +1,13 @@
+export interface ChartPoint {
+  x: number;
+  y: number;
+}
+
 const convertData = (rawData: { rates: { [key: string]: any } }) => {
   let chartArray: { x: number; y: number }[] = [];
   let rates = rawData.rates;
   for (let key in rates) {
-    let chartObject = { x: 0, y: 0 };
+    let chartObject = <ChartPoint>{};
     let dateKey = rates[key];
     let dateItems = key.split("-");
     let day = dateItems[2];

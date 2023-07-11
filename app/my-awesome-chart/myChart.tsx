@@ -2,14 +2,11 @@
 
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
 
+import { ChartPoint } from "./convertData";
+
 interface Props {
   data1: ChartPoint[];
   data2: ChartPoint[];
-}
-
-interface ChartPoint {
-  x: number;
-  y: number;
 }
 
 const myChart = ({ data1, data2 }: Props) => {
