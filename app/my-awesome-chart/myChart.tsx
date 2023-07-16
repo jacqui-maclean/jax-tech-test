@@ -19,7 +19,7 @@ const myChart = () => {
     <VictoryChart theme={VictoryTheme.material}>
       <VictoryLine
         style={{
-          data: { stroke: "#c43a31" },
+          data: { stroke: "#00ff00" },
           parent: { border: "1px solid #ccc" },
         }}
         data={ChartData1}
