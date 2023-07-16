@@ -8,7 +8,7 @@ import { GridContainer } from "@/components/grid-container";
 export default function HomePage() {
   return (
     <GridContainer>
-      <div>empty tab</div>
+      <div>this is deliberately empty</div>
     </GridContainer>
   );
 }
