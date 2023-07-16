@@ -8,7 +8,7 @@ import { GridContainer } from "@/components/grid-container";
 export default function HomePage() {
   return (
     <GridContainer>
-      <Title>Moot FE Tech Test</Title>
+      {/* <Title>Moot FE Tech Test</Title>
 
       <IntroCopy />
 
@@ -20,7 +20,8 @@ export default function HomePage() {
             <CliCommands />
           </div>
         </div>
-      </div>
+      </div> */}
+      <div>empty tab</div>
     </GridContainer>
   );
 }
