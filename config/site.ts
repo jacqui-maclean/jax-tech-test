@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "MOOT // FE TEST",
+  name: "Jax chart",
   description: "",
   mainNav: [
     {
@@ -9,7 +9,7 @@ export const siteConfig = {
       href: `/`,
     },
     {
-      title: "My Awesome Chart",
+      title: "Chart",
       href: `/my-awesome-chart`,
     },
   ],
