@@ -1,4 +1,4 @@
-import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
+import { VictoryChart, VictoryLegend, VictoryLine, VictoryTheme } from "victory";
 
 import convertData, { ChartPoint } from "./convertData";
 import FetchData from "./useData";
@@ -10,13 +10,25 @@ interface Props {
 
 const myChart = () => {
   const rawData1: any = FetchData("/2023-01-01..2023-01-31?from=GBP&to=USD");
-  console.log("rawData1.rates ", JSON.stringify(rawData1.rates));
   const ChartData1 = convertData(rawData1);
 
   const rawData2: any = FetchData("/2013-01-01..2013-01-31?from=GBP&to=USD");
   const ChartData2: any = convertData(rawData2);
   return (
     <VictoryChart theme={VictoryTheme.material}>
+      <VictoryLegend
+        x={125}
+        y={100}
+        title="Legend"
+        centerTitle
+        orientation="horizontal"
+        gutter={20}
+        style={{ border: { stroke: "black" }, title: { fontSize: 20 } }}
+        data={[
+          { name: "January 2013", symbol: { fill: "#c4c4c4" } },
+          { name: "January 2023", symbol: { fill: "#00ff00" } },
+        ]}
+      />
       <VictoryLine
         style={{
           data: { stroke: "#00ff00" },
