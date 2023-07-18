@@ -1,4 +1,4 @@
-import { VictoryChart, VictoryLegend, VictoryLine, VictoryTheme } from "victory";
+import { VictoryAxis, VictoryChart, VictoryLegend, VictoryLine, VictoryTheme } from "victory";
 
 import convertData, { ChartPoint } from "./convertData";
 import FetchData from "./useData";
@@ -29,6 +29,9 @@ const myChart = () => {
           { name: "January 2023", symbol: { fill: "#00ff00" } },
         ]}
       />
+      <VictoryAxis tickValues={[5, 10, 15, 20, 25, 30]} tickFormat={["5th", "10th", "15th", "20th", "25th", "30th"]} />
+      <VictoryAxis dependentAxis />
+
       <VictoryLine
         style={{
           data: { stroke: "#00ff00" },
