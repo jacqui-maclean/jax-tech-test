@@ -8,7 +8,7 @@ import MyChart from "./myChart";
 export default function AwesomeChart() {
   return (
     <GridContainer>
-      <Title>Exchange rates 2013/2023 USD to GBP</Title>
+      <Title>Exchange rates 2013/2023 GBP to USD</Title>
 
       <div className="flex h-full w-full flex-col">
         <MyChart />
